@@ -13,28 +13,55 @@ layout: false
   ## What is it?
 ]
 .right-column[
+## Distributed Version Control System
+- Tracks changes in files.red[*]
+- Helps integrate changes from others
+- Copies are kept in multiple places
+
+.footnote[.red[*] Actually, it could be any kind of data -- but we area mostly concerned with source code files]
+]
+???
   A distributed version control system!  Translated into English, that means
 software which performs all the nasty bookkeeping parts of dealing with changes
 in files.red[*] over time.
 
-
-.footnote[.red[*] Actually, it could be any kind of data -- but we area mostly concerened with source code files]
-]
+  The distributed part is awesome.  Everything you need to work with a git
+repository is completely local.  You can turn off your wireless so that you
+aren't tempted to go read things on the internet and still get work done and
+commit.  Most centralized VCS require you to be online and to have the source
+repository up.
 ---
 .left-column[
   ## What is it?
   ## Why use it?
 ]
 .right-column[
-  .gray[A distributed version control system!  Translated into English, that means
-software which performs all the nasty bookkeeping parts of dealing with changes
-in files over time.]
+## A safety net
+- Don't leave home without it!
+- Searchable
+- Distributed for extra backups
 
-Git gives you a safety net so that you can tinker and experiment without fear
-of losing your work.  It is also a well-known and widely used system which
-makes it easy to <a href="https://www.google.com/#q=site:stackoverflow.com+how+do+I+get+started+using+git">get good answers</a> about using it from people who do every day. 
+## Widely-used and well known
+- Not ogooglebar
+- You can get a better intro than mine!
+- Prospective employers check github
 
 ]
+???
+Git gives you a safety net so that you can tinker and experiment without fear
+of losing your work.  It is also a well-known and widely used system which
+makes it easy to <a href="https://www.google.com/#q=site:stackoverflow.com+how+do+I+get+started+using+git">get good answers</a> about using it from people who do every day.
+
+Since git is distributed, as soon as you start syncing your working with a
+remote repository, all of your files which are under git are backed up.  That
+means you can toss your laptop in Lake Andrews and you can still hand in your
+work the next day.
+
+Please don't toss your laptop in Lake Andrews, though!
+
+### prospective employers
+GitHub has activity metrics built in, and prospective employers for programmers
+will often review activity -- especially those using Free/Open Source software!
 ---
 template: inverse
 
@@ -47,9 +74,20 @@ name: how
   ### - Repositories
 ]
 .right-column[
+### It's a database
+- Stored in a .git directory
+- Can manually change the files in there
+]
+
+???
+
 A git repository is the database where git stores all of its information about
 the files which it is tracking.
-]
+
+## show students what the repository looks like
+
+We'll go ahead and look more later
+
 ---
 .left-column[
   ## How does it work?
@@ -57,19 +95,25 @@ the files which it is tracking.
   ### - Commits
 ]
 .right-column[
-The repository holds commits, which are groups of files with some additional
-information, like:
-
+## Commits are what we track!
+- a group of files
 - who made the commit
-
 - a .keyphrase[commit message] explaining why the commit was made
-
 - when the commit was made
-
 - which commit came before that commit (the .keyphrase[parent])
+- and much much more!
 
 Commits each have an ID called a .keyphrase[hash] which uniquely identifies them.
 ]
+???
+
+The repository holds commits, which are groups of files with some additional
+information, like those in the list.
+
+The hash is actually built using the contents of the commit.  If everything
+else about the commit is exactly the same, but the commit happens at a
+different time, then it will have a different hash!
+
 ---
 .left-column[
   ## How does it work?
@@ -106,6 +150,14 @@ int main (int argc, char *argv[])
   ### - Branches
 ]
 .right-column[
+## Work is done on .keyphrase[branches]
+- Experiments
+- Features
+- Bugfixes
+
+## Default branch is called .keyphrase[master]
+]
+???
 A .keyphrase[branch] is a line of commits.  A brand-new git repository will have
 a single branch, named .keyphrase[master].  The custom among most git users is
 to keep the master branch as the starting point for new work.
@@ -114,7 +166,6 @@ Often a programmer will create a new branch to work on each new piece of
 functionality in a program.  This will allow the programmer to quickly abandon
 ideas which are not working and more easily .keyphrase[merge] changes back into
 master.
-]
 ---
 template: inverse
 
@@ -303,12 +354,12 @@ Date:   Tue Apr 26 14:21:38 2016 -0400
 - Scroll down to Step 2
 - Switch to the GitHub window and go to your hello-world repository
 - Create the readme-edit branch
+]
 ???
 Now let's switch back to our Instructions Window and GitHub Window.  Scroll
 down to Step 2.
 
 
-]
 ---
 .left-column[
   ## Branching
@@ -350,11 +401,11 @@ down to Step 2.
 - Switch to the GitHub window and go to your hello-world repository
 - Edit your README.md
 - Click Commit
+]
 ???
 Now let's switch back to our Instructions Window and GitHub Window.  Scroll
 down to Step 3.
 
-]
 ---
 .left-column[
   ## Committing 
@@ -409,6 +460,7 @@ down to Step 3.
 - Switch to the Instructions window
 - Scroll down to Step 4
 - Create a pull request and submit it!
+]
 ???
 Now let's switch back to our Instructions Window and GitHub Window.  Scroll
 down to Step 4.
@@ -425,7 +477,6 @@ Step 5 in the Instructions Window, you might get a sense why.
 
 
 
-]
 ---
 
 .left-column[
@@ -436,6 +487,7 @@ Step 5 in the Instructions Window, you might get a sense why.
 - Switch to the Instructions window
 - Scroll down to Step 5
 - In the GitHub window, merge your pull request
+]
 ???
 This is the simplest case for merging, and "in the real world" not the one
 which you'll worry about too much.
@@ -444,7 +496,6 @@ Fortunately, you'll probably only run into "the real world" if you use git
 to work on group projects, or if you start trying to merge many branches
 together without pre-planning.
 
-]
 ---
 .left-column[
   ## Merging
@@ -507,6 +558,144 @@ not actually as scary as it sounds - Git still has those commits in its
 repository!
 
 ---
+template: inverse
+
+## Let's get distributed
+---
+.left-column[
+  ## Remotes
+  ### Clone
+]
+.right-column[
+## A .keyphrase[clone] is a copy of a repository
+- Grab your GitHub clone URL for hello-world
+- Clone it locally!
+
+```bash
+$ cd  # this takes you back to your home directory
+$ git clone https://your/clone/url
+$ cd hello-world
+$ git status
+$ git branch
+
+```
+.red[As always, make sure you put in your own clone URL]
+]
+???
+On GitHub, you clone a repository by "forking" another repository.  Then you can
+work from your copy and send changes back up with Pull requests.
+
+We're going to do something much more fun today and clone our GitHub repository
+locally and then push changes back.
+---
+.left-column[
+  ## Remotes
+  ### Clone
+  ### Change
+]
+.right-column[
+## Branch, edit and commit . . . again!
+
+```bash
+$ git branch local-changes
+$ notepad README.md
+$ git add README.md
+$ git commit
+
+```
+???
+Lather, rinse repeat.  You've done all of this before (and you'll do it again!)
+
+Hopefully this is getting boring by now.
+---
+.left-column[
+  ## Remotes
+  ### Clone
+  ### Change
+  ### Push
+]
+.right-column[
+## Find your branch!
+- It's not there on GitHub yet
+- . . . but it is there locally
+
+## Push back
+
+```bash
+$ git push -u origin local-changes
+
+```
+???
+Before we get to the actual pushing, I'd like you to look for your new branch
+on GitHub.  You'll notice that it's not there!
+
+That's because we have to manually synchronize our repository.  The way we do
+that is through a "git push."
+
+In our case, we are going to be explicit and tell git exactly which branch to
+push, and we're going to tell git to "track" the local-changes branch GitHub
+with our local local-changes branch.
+
+That "origin" is the local name that we have for the GitHub remote repository
+
+---
+.left-column[
+  ## Remotes
+  ### Clone
+  ### Change
+  ### Push
+  ### Pull
+]
+.right-column[
+## Now make some changes in GitHub on the local-changes branch
+
+## Fetch
+
+```bash
+$ git fetch
+$ git status
+
+```
+
+## Merge changes back in
+```bash
+$ git merge origin/local-changes
+```
+
+???
+Now pop back to your GitHub Window, switch over to the local-changes branch
+and make some changes to the Readme.md file and commit them.
+
+Now your local repository will be "behind" the remote (origin.)  You'll see
+this when you do a "git status"
+
+---
+.left-column[
+  ## Resources
+]
+.right-column[
+
+## GitHug
+## Better presentations
+- [Git for Ages 4 and Up](https://www.youtube.com/watch?v=1ffBJ4sVUb4)
+- [Getting Started with Wit](https://git-scm.com/book/en/v2/Getting-Started-Git-Basics)
+- [The gittutorial man page](https://www.kernel.org/pub/software/scm/git/docs/gittutorial.html)
+- [Git for Computer Scientists](http://eagain.net/articles/git-for-computer-scientists/)
+
+## Git hosting
+- [GitHub](https://github.com)
+- [GitLab](https://gitlab.com)
+-- Full disclosure: this is what we run locally
+- [A good list](https://git.wiki.kernel.org/index.php/GitHosting) is available
+]
+???
+Now pop back to your GitHub Window, switch over to the local-changes branch
+and make some changes to the Readme.md file and commit them.
+
+Now your local repository will be "behind" the remote (origin.)  You'll see
+this when you do a "git status"
+
+---
 name: last-page
 template: inverse
 
@@ -517,7 +706,6 @@ You can get view these slides online at:  http://abacus.bates.edu/~kblake/dcs-gi
 . . . and you can git clone them too!
 
 ```bash
-$ git clone http://abacus.bates.edu/~kblake/dcs-git/
+$ git clone https://github.com/kendall-at-bates/dcs-git.git
 ```
-
 
