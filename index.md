@@ -603,6 +603,7 @@ $ git add README.md
 $ git commit
 
 ```
+]
 ???
 Lather, rinse repeat.  You've done all of this before (and you'll do it again!)
 
@@ -625,6 +626,7 @@ Hopefully this is getting boring by now.
 $ git push -u origin local-changes
 
 ```
+]
 ???
 Before we get to the actual pushing, I'd like you to look for your new branch
 on GitHub.  You'll notice that it's not there!
@@ -661,7 +663,7 @@ $ git status
 ```bash
 $ git merge origin/local-changes
 ```
-
+]
 ???
 Now pop back to your GitHub Window, switch over to the local-changes branch
 and make some changes to the Readme.md file and commit them.
@@ -678,7 +680,7 @@ this when you do a "git status"
 ## GitHug
 ## Better presentations
 - [Git for Ages 4 and Up](https://www.youtube.com/watch?v=1ffBJ4sVUb4)
-- [Getting Started with Wit](https://git-scm.com/book/en/v2/Getting-Started-Git-Basics)
+- [Getting Started with Git](https://git-scm.com/book/en/v2/Getting-Started-Git-Basics)
 - [The gittutorial man page](https://www.kernel.org/pub/software/scm/git/docs/gittutorial.html)
 - [Git for Computer Scientists](http://eagain.net/articles/git-for-computer-scientists/)
 
