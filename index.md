@@ -3,8 +3,11 @@ layout: true
 class: center, middle, inverse
 ---
 #GIT
+Feel free to follow along at
+http://abacus.bates.edu/~kblake/dcs-git/
 
-.footnote[Slides prepared by Kendall Blake]
+.footnote[Slides prepared by Kendall Blake (kblake@bates.edu)]
+
 ---
 ## What is it and why should I be using it?
 ---
